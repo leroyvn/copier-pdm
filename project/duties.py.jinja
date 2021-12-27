@@ -356,10 +356,9 @@ def coverage(ctx):
     Arguments:
         ctx: The context instance (passed automatically).
     """
-    _print_notimplemented("coverage")
-    # ctx.run("coverage combine", nofail=True)
-    # ctx.run("coverage report --rcfile=config/coverage.ini", capture=False)
-    # ctx.run("coverage html --rcfile=config/coverage.ini")
+    ctx.run("coverage combine", nofail=True)
+    ctx.run("coverage report --rcfile=config/coverage.ini", capture=False)
+    ctx.run("coverage html --rcfile=config/coverage.ini")
 
 
 @duty
