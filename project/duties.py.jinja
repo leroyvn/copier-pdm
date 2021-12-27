@@ -316,14 +316,13 @@ def format(ctx):
     Arguments:
         ctx: The context instance (passed automatically).
     """
-    _print_notimplemented("format")
-    # ctx.run(
-    #     f"autoflake -ir --exclude tests/fixtures --remove-all-unused-imports {PY_SRC}",
-    #     title="Removing unused imports",
-    #     pty=PTY,
-    # )
-    # ctx.run(f"isort {PY_SRC}", title="Ordering imports", pty=PTY)
-    # ctx.run(f"black {PY_SRC}", title="Formatting code", pty=PTY)
+    ctx.run(
+        f"autoflake -ir --exclude tests/fixtures --remove-all-unused-imports {PY_SRC}",
+        title="Removing unused imports",
+        pty=PTY,
+    )
+    ctx.run(f"isort {PY_SRC}", title="Ordering imports", pty=PTY)
+    ctx.run(f"black {PY_SRC}", title="Formatting code", pty=PTY)
 
 
 @duty
