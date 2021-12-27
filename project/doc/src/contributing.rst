@@ -1,0 +1,10 @@
+Contributing to {{ project_name }}
+==================================
+
+Local development
+-----------------
+
+IDE configuration
+^^^^^^^^^^^^^^^^^
+
+Follow `instructions from the PDM documentation <https://pdm.fming.dev/#use-with-ide>`_.
