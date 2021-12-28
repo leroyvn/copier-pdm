@@ -258,7 +258,7 @@ def clean(ctx):
     # ctx.run("rm -rf .mypy_cache")
     ctx.run("rm -rf .pytest_cache")
     ctx.run("rm -rf tests/.pytest_cache")
-    ctx.run("rm -rf build")
+    # ctx.run("rm -rf build")
     ctx.run("rm -rf dist")
     ctx.run("rm -rf htmlcov")
     # ctx.run("rm -rf pip-wheel-metadata")
@@ -275,22 +275,22 @@ def docs(ctx):
     Arguments:
         ctx: The context instance (passed automatically).
     """
-    _print_notimplemented("docs")
-    # ctx.run("mkdocs build", title="Building documentation")
+    ctx.run("sphinx-build -b html docs build/html", title="Building documentation")
 
 
 @duty
-def docs_serve(ctx, host="127.0.0.1", port=8000):
+def docs_serve(ctx):
     """
     Serve the documentation (localhost:8000).
 
     Arguments:
         ctx: The context instance (passed automatically).
-        host: The host to serve the docs from.
-        port: The port to serve the docs on.
     """
-    _print_notimplemented("docs_serve")
-    # ctx.run(f"mkdocs serve -a {host}:{port}", title="Serving documentation", capture=False)
+    ctx.run(
+        "sphinx-autobuild -b html docs build/html",
+        title="Serving documentation",
+        capture=False,
+    )
 
 
 {% if repository_provider == "github.com" -%}
