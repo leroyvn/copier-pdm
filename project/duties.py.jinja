@@ -114,7 +114,7 @@ def changelog(ctx):
     # )
 
 
-@duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies"])
+@duty(pre=["check_quality", "check_types", "check_dependencies"])
 def check(ctx):
     """
     Check it all!
@@ -175,20 +175,6 @@ def check_dependencies(ctx):
     #         print(output_report)
     #
     # ctx.run(safety, title="Checking dependencies")
-
-
-@duty
-def check_docs(ctx):
-    """
-    Check if the documentation builds correctly.
-
-    Arguments:
-        ctx: The context instance (passed automatically).
-    """
-    _print_notimplemented("check_docs")
-    # Path("htmlcov").mkdir(parents=True, exist_ok=True)
-    # Path("htmlcov/index.html").touch(exist_ok=True)
-    # ctx.run("mkdocs build -s", title="Building documentation", pty=PTY)
 
 
 @duty  # noqa: WPS231
@@ -275,7 +261,10 @@ def docs(ctx):
     Arguments:
         ctx: The context instance (passed automatically).
     """
-    ctx.run("sphinx-build -b html docs build/html", title="Building documentation")
+    ctx.run(
+        "sphinx-build -b html docs build/html",
+        title="Building documentation",
+    )
 
 
 @duty
@@ -293,20 +282,6 @@ def docs_serve(ctx):
     )
 
 
-{% if repository_provider == "github.com" -%}
-@duty
-def docs_deploy(ctx):
-    """
-    Deploy the documentation on GitHub pages.
-
-    Arguments:
-        ctx: The context instance (passed automatically).
-    """
-    _print_notimplemented("docs_deploy")
-    # ctx.run("mkdocs gh-deploy", title="Deploying documentation")
-
-
-{% endif -%}
 @duty
 def format(ctx):
     """
@@ -316,7 +291,7 @@ def format(ctx):
         ctx: The context instance (passed automatically).
     """
     ctx.run(
-        f"autoflake -ir --exclude tests/fixtures --remove-all-unused-imports {PY_SRC}",
+        f"autoflake -ir --remove-all-unused-imports {PY_SRC}",
         title="Removing unused imports",
         pty=PTY,
     )
