@@ -5,7 +5,7 @@ import nox
 os.environ["PDM_IGNORE_SAVED_PYTHON"] = "1"
 
 
-@nox.session(venv_backend="conda", python=("3.7",))
+@nox.session(python=("3.7", "3.8", "3.9", "3.10"))
 def test(session):
     session.run("pdm", "install", "-G", "tests", external=True)
     session.run("pytest", "tests/")
