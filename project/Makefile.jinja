@@ -43,6 +43,6 @@ check:
 	@$(DUTY) check-quality check-types check-docs
 	@$(DUTY) check-dependencies
 
-.PHONY: $(DUITES)
-$(DUITES):
+.PHONY: $(DUTIES)
+$(DUTIES):
 	@$(DUTY) $@ $(call args,$@)
