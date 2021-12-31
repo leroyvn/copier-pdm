@@ -9,7 +9,7 @@ docs_serve_args = host port
 release_args = version
 test_args = match
 
-BASIC_DUTIES = \
+DUTIES = \
 	changelog \
 	check-dependencies \
 	clean \
@@ -21,13 +21,10 @@ BASIC_DUTIES = \
 	docs-regen \
 	docs-serve \
 	format \
-	release
+	release \
+	test \
+	nox-test
 
-QUALITY_DUTIES = \
-	check-quality \
-	check-docs \
-	check-types \
-	test
 
 .PHONY: help
 help:
@@ -46,10 +43,6 @@ check:
 	@$(DUTY) check-quality check-types check-docs
 	@$(DUTY) check-dependencies
 
-.PHONY: $(BASIC_DUTIES)
-$(BASIC_DUTIES):
-	@$(DUTY) $@ $(call args,$@)
-
-.PHONY: $(QUALITY_DUTIES)
-$(QUALITY_DUTIES):
+.PHONY: $(DUITES)
+$(DUITES):
 	@$(DUTY) $@ $(call args,$@)

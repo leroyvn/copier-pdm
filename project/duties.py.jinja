@@ -336,18 +336,37 @@ def coverage(ctx):
 
 
 @duty
-def test(ctx, match: str = ""):
+def test(ctx, pytest_args: str = ""):
     """
-    Run the test suite.
+    Run the test suite using PEP 582.
 
     Arguments:
         ctx: The context instance (passed automatically).
-        match: A pytest expression to filter selected tests.
+        pytest_args: Arguments forwarded to the pytest command.
     """
-    py_version = f"{sys.version_info.major}{sys.version_info.minor}"
-    os.environ["COVERAGE_FILE"] = f".coverage.{py_version}"
+    args = ["--"] + pytest_args.split(" ") if pytest_args else []
+
     ctx.run(
-        ["pytest", "-c", "config/pytest.ini", "-k", match, "tests"],
+        ["nox", "--no-venv", "-s", "test", *args],
+        title="Running tests",
+        pty=PTY,
+        capture=False,
+    )
+
+
+@duty
+def nox_test(ctx, nox_args: str = "", pytest_args: str = ""):
+    """
+    Run the test suite using PEP 582.
+
+    Arguments:
+        ctx: The context instance (passed automatically).
+        pytest_args: Arguments forwarded to the pytest command.
+    """
+    args = ["--"] + pytest_args.split(" ") if pytest_args else []
+
+    ctx.run(
+        ["nox", "-s", "test", *args],
         title="Running tests",
         pty=PTY,
         capture=False,
