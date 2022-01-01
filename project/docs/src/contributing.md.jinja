@@ -2,17 +2,27 @@
 
 ## Local development
 
-### Virtual environment issues
-
-- Recommended usage is to disable any active virtual environment (including Conda envs).
-
-### Testing with Nox
-
-Our testing process uses [Nox](https://nox.thea.codes) to test {{ project_name }}
-against multiple Python versions.
-
-- Set `pdm config use_venv true`.
-
 ### IDE configuration
 
 Follow [instructions from the PDM documentation](https://pdm.fming.dev/#use-with-ide).
+
+### Running tests
+
+The testing process of {{ project_name }} uses [pytest](https://docs.pytest.org) and [Nox](https://nox.thea.codes). Two make targets are defined to help you run the tests:
+
+- `make test`: run pytest without creating a new environment (uses equivalent to `nox --no-venv`);
+- `make nox-test`: run pytest in a virtual environment for each selected Python version.
+
+### Virtual environment issues
+
+This project uses PDM's PEP 582 support, meaning that it does not require using a virtual environment for development.
+
+````{warning}
+We recommend deactivating Conda's `base` environment if you don't want to use a virtual environment and instead rely on PDM's PEP 582 support.
+````
+
+You may however use one if that suits you: in that case, you'll want to configure PDM so as to use the current virtual environment as [instructed in the PDM docs](https://pdm.fming.dev/usage/project/#working-with-a-virtualenv):
+
+```bash
+pdm config --local use_venv true
+```
