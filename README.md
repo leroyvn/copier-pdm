@@ -1,6 +1,13 @@
 # Copier template for PDM projects
 
-[Copier](https://github.com/copier-org/copier) template for projects managed with [PDM](https://pdm.fming.dev/). Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawamoy](https://github.com/pawamoy/copier-pdm)'s templates.
+[Copier](https://github.com/copier-org/copier) template for projects managed with [PDM](https://pdm.fming.dev/).
+Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawamoy](https://github.com/pawamoy/copier-pdm)'s templates.
+
+## Requirements
+
+* Python 3
+* Git
+* Copier
 
 ## References and notes
 
