@@ -21,7 +21,7 @@ _skip_if_exists:
   - CREDITS.md
 
 _tasks:
-  - python scripts/post_generation.py
+  - python3 scripts/post_generation.py
 
 # PROMPT --------------------------------
 
