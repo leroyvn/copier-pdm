@@ -3,6 +3,18 @@
 [Copier](https://github.com/copier-org/copier) template for projects managed with [PDM](https://pdm.fming.dev/).
 Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawamoy](https://github.com/pawamoy/copier-pdm)'s templates.
 
+## Features
+
+* **Package manager**:
+  This template uses [PDM](https://pdm.fming.dev/), pre-configured in `pyproject.toml`.
+* **Tests**:
+  Tests run with [pytest](https://pytest.org/) ([xdocstest](https://xdoctest.readthedocs.io/) plugin activated).
+  Multi-environment testing is implemented with [Nox](https://nox.thea.codes/).
+* **Documentation**:
+  An optional documentation template can be generated.
+  It uses [Sphinx](https://sphinx-doc.org/) ([Furo](https://pradyunsg.me/furo/) theme, [MyST parser](https://myst-parser.readthedocs.io/) plugin activated).
+  Writing docstrings using the [Numpydoc](https://numpydoc.readthedocs.io/) format is encouraged.
+
 ## Requirements
 
 * Python 3
