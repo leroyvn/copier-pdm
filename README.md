@@ -13,7 +13,8 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 * **Documentation**:
   An optional documentation template can be generated.
   It uses [Sphinx](https://sphinx-doc.org/) ([Furo](https://pradyunsg.me/furo/) theme, [MyST parser](https://myst-parser.readthedocs.io/) plugin activated).
-  Writing docstrings using the [Numpydoc](https://numpydoc.readthedocs.io/) format is encouraged.
+  Default API documentation is generated using a recursive `autosummary` setup.
+  Writing docstrings with the [Numpydoc](https://numpydoc.readthedocs.io/) format is encouraged.
 
 ## Requirements
 
