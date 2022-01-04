@@ -24,9 +24,6 @@ def write_vscode_settings():
     data = {
         "python.analysis.extraPaths": [f"{packages_path}/lib"],
         "python.autoComplete.extraPaths": [f"{packages_path}/lib"],
-        "python.testing.pytestEnabled": True,
-        "python.testing.pytestPath": f"{packages_path}/{pytest_path}",
-        "python.testing.pytestArgs": ["tests/"],
     }
 
     settings = PROJECT_ROOT / ".vscode/settings.json"
