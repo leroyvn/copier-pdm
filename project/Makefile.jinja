@@ -3,25 +3,18 @@ SHELL := bash
 
 DUTY = $(shell [ -n "${VIRTUAL_ENV}" ] || echo pdm run) duty
 
-args = $(foreach a,$($(subst -,_,$1)_args),$(if $(value $a),$a="$($a)"))
+{# args = $(foreach a,$($(subst -,_,$1)_args),$(if $(value $a),$a="$($a)"))
 check_quality_args = files
 docs_serve_args = host port
 release_args = version
-test_args = match
+test_args = match #}
 
 DUTIES = \
-	changelog \
-	check-dependencies \
 	clean \
 	coverage \
 	docs \
-	{%- if repository_provider == "github.com" %}
-	docs-deploy \
-	{%- endif %}
-	docs-regen \
 	docs-serve \
 	format \
-	release \
 	test \
 	nox-test
 
@@ -38,11 +31,7 @@ lock:
 setup:
 	@bash scripts/setup.sh
 
-.PHONY: check
-check:
-	@$(DUTY) check-quality check-types check-docs
-	@$(DUTY) check-dependencies
-
 .PHONY: $(DUTIES)
 $(DUTIES):
-	@$(DUTY) $@ $(call args,$@)
+	{# @$(DUTY) $@ $(call args,$@) #}
+	@$(DUTY) $@
