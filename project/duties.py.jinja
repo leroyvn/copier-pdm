@@ -40,7 +40,7 @@ def docs(ctx):
         ctx: The context instance (passed automatically).
     """
     ctx.run(
-        "sphinx-build -b html docs build/html",
+        "sphinx-build -b html docs src/_build/html",
         title="Building documentation",
         capture=False,
     )
@@ -55,7 +55,7 @@ def docs_serve(ctx):
         ctx: The context instance (passed automatically).
     """
     ctx.run(
-        "sphinx-autobuild -b html docs build/html",
+        "sphinx-autobuild -b html docs src/_build/html",
         title="Serving documentation",
         capture=False,
     )
