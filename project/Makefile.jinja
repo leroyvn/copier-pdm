@@ -27,23 +27,17 @@ pdm-lock:
 
 # Lock conda dependencies
 conda-lock:
-	conda-lock --mamba --file pyproject.toml \
-		--kind explicit \
-	    --filename-template "requirements/environment-{platform}.lock" \
-	    -p $(PLATFORM)
-
-conda-lock-all:
-	conda-lock --mamba --file pyproject.toml \
-		--kind explicit \
-	    --filename-template "requirements/environment-{platform}.lock"
+	conda-lock lock --mamba \
+		--file pyproject.toml
+		--lockfile requirements/conda-lock.yml
 
 # Initialise development environment
 conda-init:
-	conda update --file requirements/environment-$(PLATFORM).lock
+	conda-lock install --mamba --name {{ python_conda_env_name }} requirements/conda-lock.yml
 	python3 -m pip install --editable . --no-deps
 
-# Shortcut for poetry and conda lock
-lock: conda-lock-all poetry-lock
+# Shortcut for PDM and conda lock
+lock: conda-lock-all pdm-lock
 
 conda-update: conda-lock-all conda-init lock
 

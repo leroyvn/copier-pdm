@@ -132,6 +132,11 @@ python_package_command_line_name:
   help: Your CLI name if any (for use in the shell)
   default: "{{ project_name|lower|replace('_', '-')|replace(' ', '-') }}"
 
+python_conda_env_name:
+  type: str
+  help: Conda virtual environment name (for `conda activate`)
+  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
+
 use_precommit:
   type: bool
   help: Do you want to use pre-commit?
