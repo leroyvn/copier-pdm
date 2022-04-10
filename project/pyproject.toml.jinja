@@ -145,10 +145,17 @@ line_length = 88
 style = "black"
 
 [tool.conda-lock]
-channels = [
-    "conda-forge",
-    "defaults",
-]
+channels = ["conda-forge", "defaults"]
 
 [tool.conda-lock.dependencies]
 pip = "*"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["src/{{ python_package_import_name }}"]
+
+[tool.coverage.report]
+show_missing = true
