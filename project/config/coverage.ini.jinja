@@ -1,9 +1,7 @@
 [coverage:run]
 branch = true
-parallel = true
 source =
   src/
-  tests/
 
 [coverage:paths]
 equivalent =
@@ -15,7 +13,6 @@ precision = 2
 omit =
   src/*/__init__.py
   src/*/__main__.py
-  tests/__init__.py
 
 [coverage:json]
 output = htmlcov/coverage.json
