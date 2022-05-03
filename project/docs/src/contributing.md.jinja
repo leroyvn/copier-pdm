@@ -8,7 +8,7 @@ Developing {{ package_name }} requires:
 
 * the [PDM](https://pdm.fming.dev/) package manager (typically installed with
   [pipx](https://pypa.github.io/pipx/));
-* [Nox](nox.thea.codes/), a test automation framework which uses Python files
+* [Nox](https://nox.thea.codes/), a test automation framework which uses Python files
   for configuration.
 
 ### IDE configuration
@@ -50,13 +50,13 @@ pdm config --local use_venv true
 Developing {{ project_name }} using a Conda virtual environment is supported.
 To get started, initialise an empty Conda environment:
 
-```{bash}
+```bash
 conda create --name {{ python_conda_env_name }}
 ```
 
 Then activate it and initialise it:
 
-```{bash}
+```bash
 conda activate {{ python_conda_env_name }}
 make conda-init
 ```
