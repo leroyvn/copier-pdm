@@ -44,3 +44,39 @@ configure PDM so as to use the current virtual environment as
 ```bash
 pdm config --local use_venv true
 ```
+
+## Using a Conda virtual environment
+
+Developing {{ project_name }} using a Conda virtual environment is supported.
+To get started, initialise an empty Conda environment:
+
+```{bash}
+conda create --name {{ python_conda_env_name }}
+```
+
+Then activate it and initialise it:
+
+```{bash}
+conda activate {{ python_conda_env_name }}
+make conda-init
+```
+
+```{note}
+Initialisation is possible only if a conda-lock `requirements/conda-lock.yml`
+already exists. If not, you first have to generate it using conda-lock (see
+[Managing dependencies](managing_dependencies)).
+```
+
+(managing_dependencies)=
+## Managing dependencies
+
+Dependencies are managed using PDM.
+The [conda-lock](https://conda-incubator.github.io/conda-lock/) utility is also
+configured to help create reproducible Conda lock environments. For simplicity,
+dedicated Make targets lock PDM, Conda or both environments:
+
+```{bash}
+make pdm-lock    # lock PDM dependencies
+make conda-lock  # lock Conda dependencies
+make lock        # chains PDM and Conda locking
+```
