@@ -6,7 +6,7 @@
 
 import {{ python_package_import_name }}
 
-# -- Path setup --------------------------------------------------------------
+# -- Path setup ----------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -15,7 +15,7 @@ import {{ python_package_import_name }}
 
 # sys.path.insert(0, os.path.abspath("../src"))
 
-# -- Project information -----------------------------------------------------
+# -- Project information -------------------------------------------------------
 
 project = {{ project_name }}
 copyright = "{{ copyright_date }}, {{ copyright_holder }}"
@@ -24,12 +24,13 @@ author = "Vincent Leroy"
 release = {{ python_package_import_name }}.__version__
 version = {{ python_package_import_name }}.__version__
 
-# -- General configuration ---------------------------------------------------
+# -- General configuration -----------------------------------------------------
 
 extensions = [
     # Core extensions
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
@@ -62,7 +63,7 @@ extlinks = {
 }
 
 
-# -- Options for HTML output -------------------------------------------
+# -- Options for HTML output ---------------------------------------------------
 
 html_static_path = ["_static"]
 html_title = "{{ project_name }}"
