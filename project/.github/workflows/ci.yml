@@ -1,0 +1,50 @@
+name: CI
+on:
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+
+  push:
+    branches:
+      - master
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+
+jobs:
+  test:
+    name: Tests
+
+    strategy:
+      matrix:
+        python-version:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+        os:
+          - ubuntu-latest
+          # - macOS-latest
+          # - windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@main
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Nox
+        uses: excitedleigh/setup-nox@main
+
+      - name: Install dependencies
+        run: pdm install
+
+      - name: Run Tests
+        run: make test
