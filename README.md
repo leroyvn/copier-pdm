@@ -33,3 +33,4 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 * Replace coverage fail threshold with badge (*e.g.* using [genbadge](https://smarie.github.io/python-genbadge/))
 * Add publication to PyPI and Anaconda Cloud
 * Add pre-commit hooks
+* Add Read the docs configuration file template
