@@ -14,7 +14,7 @@ on:
       - "*.md"
 
 jobs:
-  test:
+  tests:
     name: Tests
 
     strategy:
