@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  release-pypi:
+    name: Release to PyPI
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pdm-project/setup-pdm@main
+        name: Setup PDM
+        with:
+          python-version: "3.10"
+          architecture: x64
+          prerelease: true
+          enable-pep582: false
+
+      - name: Build wheels
+        run: |
+          pdm build
+
+      - name: Test build
+        run: |
+          python3 -m venv fresh_env
+          . fresh_env/bin/activate
+          pip install dist/*.whl
+          fresh_env/bin/python -c "import {{ python_package_import_name }}; print({{ python_package_import_name }}.__version__)"
+
+      - name: Upload to Pypi
+        run: |
+          pdm publish --no-build -r pypi --username __token__ --password ${{ secrets.PYPI_TOKEN }}
