@@ -10,6 +10,7 @@ pdm-lock:
 
 # Lock conda dependencies
 conda-lock:
+	mkdir requirements
 	conda-lock lock --mamba \
 	    --file pyproject.toml \
 	    --lockfile requirements/conda-lock.yml
@@ -23,9 +24,9 @@ conda-init:
 # Shortcut for PDM and conda lock
 lock: conda-lock pdm-lock
 
-conda-update: conda-lock-all conda-init lock
+conda-update: conda-lock conda-init lock
 
-.PHONY: conda-lock conda-lock-all conda-init conda-update
+.PHONY: conda-lock conda-init conda-update
 
 # -- Testing -------------------------------------------------------------------
 
