@@ -142,7 +142,7 @@ use_precommit:
   help: Do you want to use pre-commit?
   default: no
 
-build_doc:
+docs_sphinx:
   type: bool
-  help: Do you want to include a doc site?
+  help: Do you want to include Sphinx documentation?
   default: no
