@@ -149,3 +149,43 @@ channels = ["conda-forge", "defaults"]
 
 [tool.conda-lock.dependencies]
 pip = "*"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = [
+  "src/",
+]
+
+[tool.coverage.paths]
+equivalent = [
+  "src/",
+  "__pypackages__/",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+omit = [
+  "src/*/__init__.py",
+  "src/*/__main__.py",
+  "src/*/_version.py",
+]
+precision = 2
+
+[tool.pytest.ini_options]
+norecursedirs = [
+  ".git",
+  ".env",
+  "dist",
+  "build",
+  "__pypackages__",
+]
+python_files = [
+  "test_*.py",
+  "*_test.py",
+  "tests.py",
+]
+testpaths = [
+  "tests",
+]
