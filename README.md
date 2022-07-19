@@ -34,3 +34,4 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 * Add publication to PyPI and Anaconda Cloud
 * Add pre-commit hooks
 * Add Read the docs configuration file template
+* Replace makefile-based tasks with PDM tasks
