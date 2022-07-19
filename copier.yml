@@ -76,12 +76,12 @@ copyright_holder_email:
 copyright_date:
   type: str
   help: The copyright date
-  default: "2021"
+  default: "2022"
 
 copyright_license:
   type: str
   help: Your project's license
-  default: ISC License
+  default: MIT License
   choices:
     - Academic Free License v3.0
     - Apache License 2.0
@@ -144,5 +144,5 @@ use_precommit:
 
 docs_sphinx:
   type: bool
-  help: Do you want to include Sphinx documentation?
+  help: Do you want to initialise Sphinx docs?
   default: no

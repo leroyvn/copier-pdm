@@ -1,2 +1,3 @@
 .vscode/
 tests/tmp
+.DS_Store

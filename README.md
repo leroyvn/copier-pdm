@@ -24,6 +24,12 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 
 ## References and notes
 
-- Good practice guide: [Scikit-HEP dev guide](https://scikit-hep.org/developer)
-- Use PEP 621 (metadata in `pyproject.toml`) and a compatible build backend (options: PDM with [pdm-publish](https://github.com/branchvincent/pdm-publish), [Flit](https://flit.readthedocs.io/en/latest/), setuptools through [ppsetuptools](https://github.com/TheCleric/ppsetuptools))
-- About version capping: https://iscinumpy.dev/post/bound-version-constraints/#tldr
+* Good practice guide: [Scikit-HEP dev guide](https://scikit-hep.org/developer)
+* Use PEP 621 (metadata in `pyproject.toml`) and a compatible build backend (options: PDM with [pdm-publish](https://github.com/branchvincent/pdm-publish), [Flit](https://flit.readthedocs.io/en/latest/), setuptools through [ppsetuptools](https://github.com/TheCleric/ppsetuptools))
+* About version capping: <https://iscinumpy.dev/post/bound-version-constraints/#tldr>
+
+## Roadmap
+
+* Replace coverage fail threshold with badge (*e.g.* using [genbadge](https://smarie.github.io/python-genbadge/))
+* Add publication to PyPI and Anaconda Cloud
+* Add pre-commit hooks
