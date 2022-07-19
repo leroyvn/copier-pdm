@@ -34,4 +34,4 @@ jobs:
 
       - name: Upload to Pypi
         run: |
-          pdm publish --no-build -r pypi --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+          pdm publish --no-build -r pypi --username __token__ --password {{ '${{ secrets.PYPI_TOKEN }}' }}
