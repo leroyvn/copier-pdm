@@ -32,6 +32,6 @@ jobs:
           pip install dist/*.whl
           fresh_env/bin/python -c "import {{ python_package_import_name }}; print({{ python_package_import_name }}.__version__)"
 
-      - name: Upload to Pypi
+      - name: Upload to PyPI
         run: |
           pdm publish --no-build -r pypi --username __token__ --password {{ '${{ secrets.PYPI_TOKEN }}' }}
