@@ -33,9 +33,9 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 
 ## Roadmap
 
-* [ ] Replace coverage fail threshold with badge (*e.g.* using [genbadge](https://smarie.github.io/python-genbadge/))
 * [ ] Add publication to Anaconda Cloud
 * [ ] Add pre-commit hooks
 * [ ] Replace makefile-based tasks with PDM tasks
+* [x] Replace coverage fail threshold with task summary
 * [x] Add publication to PyPI
 * [x] Add Read the Docs configuration file template
