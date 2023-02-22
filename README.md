@@ -33,6 +33,7 @@ Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawam
 
 ## Roadmap
 
+* [ ] Switch to Ruff, remove isort
 * [ ] Add publication to Anaconda Cloud
 * [ ] Add pre-commit hooks
 * [ ] Replace makefile-based tasks with PDM tasks
