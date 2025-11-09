@@ -1,5 +1,8 @@
 # Copier template for PDM projects
 
+> [!IMPORTANT]
+> This repository is unmaintained and therefore archived. Apologies if you were using it: I have stopped using PDM and Copier for now.
+
 [Copier](https://github.com/copier-org/copier) template for projects managed with [PDM](https://pdm.fming.dev/).
 Inspired by [Frost Ming](https://github.com/pdm-project/copier-pdm)'s and [pawamoy](https://github.com/pawamoy/copier-pdm)'s templates.
 
